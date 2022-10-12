@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
+    <title>Alzheimer's Detector</title>
+    <link rel="stylesheet" href="../static/styles_container.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_footer.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_menu.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_other.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_login.css" type= "text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-    <img src="{{ user_image }}" alt="User Image">
-    <img src="C:\Users\pkubon\OneDrive - Capgemini\Desktop\inżynierka_web\static\img.png" alt="User Image">
+    <div class="login_container">
+        <form action="/login_validation" method="post">
+            <div class="login_container_in">
+                <input type="text" name="login" placeholder="Login..." value="{{login}}">
+            </div>
+            <div class="login_container_in">
+                <input type="password" name="pwd" placeholder="Password..." value="{{pwd}}">
+            </div>
+            <div class="login_container_submit">
+                <input type="submit" value="Submit">
+            </div>
+          </form>
+    </div>
 </body>
 </html>
