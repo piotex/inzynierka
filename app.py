@@ -1,6 +1,8 @@
 import os
 from flask import Flask, request, render_template, send_file, send_from_directory
 
+from models.User import User
+
 UPLOAD_FOLDER = './upload'
 
 app = Flask(__name__)
@@ -9,20 +11,39 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 LOGGED_IN = False
 
 
+
+
+@app.route('/test_dev', methods=['GET', 'POST'])
+def test_dev():
+    user1 = User(id=9997, name="Peter", surname="Kubon", image="../static/img.jpg", role="patient")
+    user2 = User(id=9997, name="Adam", surname="Smith", image="../static/img.jpg", role="patient")
+    user3 = User(id=9997, name="Jan", surname="Bond", image="../static/img.jpg", role="doctor")
+
+    user_list = [user1, user2, user3]
+    return render_template('patient_list.html', user_list=user_list)
+
+
+@app.route('/test_dev_1', methods=['GET', 'POST'])
+def test_dev_1():
+    surname = request.form.get("surname")
+    name = request.form.get("name")
+    file = request.files["image"]
+    if file.filename != '':
+        file.save("C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inżynierka_web\\static\\" + file.filename)
+
+    user1 = User(id=9997, name=name, surname=surname, image="../static/"+file.filename, role="patient")
+    user_list = [user1]
+    return render_template('patient_list.html', user_list=user_list)
+    
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global LOGGED_IN
-    if LOGGED_IN:
-        return render_template('home.html')
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 @app.route('/home', methods=['GET', 'POST'])
 def login():
-    global LOGGED_IN
-    if LOGGED_IN:
-        return render_template('home.html')
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 @app.route('/login_validation', methods=['GET', 'POST'])

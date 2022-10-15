@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alzheimer's Detector</title>
+    <link rel="stylesheet" href="../static/styles_container.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_footer.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_menu.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_other.css" type= "text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+    {% include "partials/menu.html" %} 
+    <div id="container">
+        <div class="container_box_1_out">
+            <div class="container_box_1_in">
+                <div class="container_box_1_in_img_box">
+                    <img src="../static/def_pers_icon.png" alt="def_pers_icon">
+                </div>
+                <div class="container_box_1_in_data_box">
+                    <div class="container_box_1_in_data_box_name">Jan Kow</div>
+                    <div class="container_box_1_in_data_box_func">
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/add.png" alt="add">
+                            <p>Add</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_box_1_in">
+                <div class="container_box_1_in_img_box">
+                    <img src="{{user.image}}" alt="def_pers_icon">
+                </div>
+                <div class="container_box_1_in_data_box">
+                    <div class="container_box_1_in_data_box_name">{{user.name}} {{user.surname}}</div>
+                    <div class="container_box_1_in_data_box_func">
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/examine.png" alt="examine">
+                            <p>EXAMINE</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/history.png" alt="history">
+                            <p>HISTORY</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/edit.png" alt="edit">
+                            <p>EDIT</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/delete.png" alt="delete">
+                            <p>DELETE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_box_1_in">
+                <div class="container_box_1_in_img_box">
+                    <img src="../static/def_pers_icon.png" alt="def_pers_icon">
+                </div>
+                <div class="container_box_1_in_data_box">
+                    <div class="container_box_1_in_data_box_name">Piotr Kuboń xxxxxxxxxxxx</div>
+                    <div class="container_box_1_in_data_box_func">
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/examine.png" alt="examine">
+                            <p>EXAMINE</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/history.png" alt="history">
+                            <p>HISTORY</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/edit.png" alt="edit">
+                            <p>EDIT</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/delete.png" alt="delete">
+                            <p>DELETE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_box_1_in">
+                <div class="container_box_1_in_img_box">
+                    <img src="../static/def_pers_icon.png" alt="def_pers_icon">
+                </div>
+                <div class="container_box_1_in_data_box">
+                    <div class="container_box_1_in_data_box_name">Piotr Kuboń xxxxxxxxxxxx</div>
+                    <div class="container_box_1_in_data_box_func">
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/examine.png" alt="examine">
+                            <p>EXAMINE</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/history.png" alt="history">
+                            <p>HISTORY</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/edit.png" alt="edit">
+                            <p>EDIT</p>
+                        </div>
+                        <div class="container_box_1_in_data_box_func_but">
+                            <img src="../static/delete.png" alt="delete">
+                            <p>DELETE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

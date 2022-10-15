@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alzheimer's Detector</title>
+    <link rel="stylesheet" href="../static/styles_container.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_footer.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_menu.css" type= "text/css">
+    <link rel="stylesheet" href="../static/styles_other.css" type= "text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+    {% include "partials/menu.html" %} 
+    <div id="container">
+        {% include "partials/patient_list_add_patient.html" %}
+        {% for user in user_list: %}
+            {% include "partials/patient_list_patient_record.html" %}
+        {%endfor%}
+
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
