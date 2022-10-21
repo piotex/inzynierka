@@ -7,20 +7,28 @@
             <div class="container_box_1_in_data_box_name">{{user.name}} {{user.surname}}</div>
             <div class="container_box_1_in_data_box_func">
                 <div class="container_box_1_in_data_box_func_but">
-                    <img src="../static/examine.png" alt="examine">
-                    <p>EXAMINE</p>
+                    <form action="/examine_user" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                        <input src="../static/def/examine.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
+                    </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <img src="../static/history.png" alt="history">
-                    <p>HISTORY</p>
+                    <form action="/history_user" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                        <input src="../static/def/history.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
+                    </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <img src="../static/edit.png" alt="edit">
-                    <p>EDIT</p>
+                    <form action="/edit_user" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                        <input src="../static/def/edit.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
+                    </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <img src="../static/delete.png" alt="delete">
-                    <p>DELETE</p>
+                    <form action="/delete_user" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                        <input src="../static/def/delete.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
+                    </form>
                 </div>
             </div>
         </div>

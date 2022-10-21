@@ -17,6 +17,11 @@
 .container_box_1_in_img_box{
     display: inline-block;
 }
+.container_box_1_in_data_box_name_edit{
+    width: 100px;
+    margin: 25px 15px;
+    border-radius: 25%;
+}
 .container_box_1_in_img_box img{
     width: 100px;
     margin: 25px 15px;
@@ -36,6 +41,12 @@
 .container_box_1_in_data_box_func{
     display: flex;
 }
+
+.container_box_1_in_data_box_func_but_input_hid_submit{
+    width: 50px;
+    margin: 15px 15px 0px 12px;
+    border-radius: 25%;
+}
 .container_box_1_in_data_box_func img{
     width: 50px;
     margin: 15px 15px 0px 12px;
@@ -49,4 +60,6 @@
     display: inline-block;
     margin: 0 5px;
 }
-
+.container_box_1_in_data_box_func_but_input_hid{
+    display: none;
+}
