@@ -7,4 +7,5 @@ class User:
     name: str
     surname: str
     image: str
-    role: str
+    login: str
+    password: str

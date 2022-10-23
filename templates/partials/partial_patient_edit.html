@@ -1,0 +1,15 @@
+<form action="/patient_edit" method="post" enctype = "multipart/form-data">
+    <div class="container_box_1_out">
+        <div class="container_box_1_in">
+            <div class="container_box_1_in_data_box">
+                <div class="container_box_1_in_data_box_name">
+                    <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
+                    <input type="file" name="image" accept="image/*" value="{{patient.image}}">
+                    <input type="text" name="name" placeholder="Name..." value="{{patient.name}}">
+                    <input type="text" name="surname" placeholder="Surname..." value="{{patient.surname}}">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

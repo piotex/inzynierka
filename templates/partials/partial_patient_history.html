@@ -1,0 +1,17 @@
+<div class="container_box_1_out">
+    <div class="container_box_1_in">
+        <div class="container_box_1_in_img_box">
+            <img src="{{patient.image}}" alt="def_pers_icon">
+        </div>
+        <div class="container_box_1_in_data_box">
+            <div class="container_box_1_in_data_box_name">{{patient.name}} {{patient.surname}}</div>
+            <div class="container_box_1_in_data_box_func">
+                <ol>
+                    {%for exam in patient.exam_history%}
+                        <li>{{exam}}</li>
+                    {%endfor%}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

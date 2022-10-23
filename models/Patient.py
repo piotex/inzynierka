@@ -7,4 +7,4 @@ class Patient:
     name: str
     surname: str
     image: str
-    exam_history: list[Exam]
+    exam_history: list[str]

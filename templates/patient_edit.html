@@ -12,11 +12,7 @@
 <body>
     {% include "partials/menu.html" %} 
     <div id="container">
-        {% include "partials/partial_patient_add.html" %}
-        {% for patient in patient_list: %}
-            {% include "partials/partial_patient_record.html" %}
-        {%endfor%}
-
+        {% include "partials/partial_patient_edit.html" %}
     </div>
     <div id="footer"></div>
 </body>

@@ -1,32 +1,32 @@
 <div class="container_box_1_out">
     <div class="container_box_1_in">
         <div class="container_box_1_in_img_box">
-            <img src="{{user.image}}" alt="def_pers_icon">
+            <img src="{{patient.image}}" alt="def_pers_icon">
         </div>
         <div class="container_box_1_in_data_box">
-            <div class="container_box_1_in_data_box_name">{{user.name}} {{user.surname}}</div>
+            <div class="container_box_1_in_data_box_name">{{patient.name}} {{patient.surname}}</div>
             <div class="container_box_1_in_data_box_func">
                 <div class="container_box_1_in_data_box_func_but">
-                    <form action="/examine_user" method="post" enctype = "multipart/form-data">
-                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                    <form action="/patient_examine" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
                         <input src="../static/def/examine.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
                     </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <form action="/history_user" method="post" enctype = "multipart/form-data">
-                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                    <form action="/patient_history" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
                         <input src="../static/def/history.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
                     </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <form action="/edit_user" method="post" enctype = "multipart/form-data">
-                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                    <form action="/patient_edit" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
                         <input src="../static/def/edit.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
                     </form>
                 </div>
                 <div class="container_box_1_in_data_box_func_but">
-                    <form action="/delete_user" method="post" enctype = "multipart/form-data">
-                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{user.id}}">
+                    <form action="/patient_delete" method="post" enctype = "multipart/form-data">
+                        <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
                         <input src="../static/def/delete.png" type="image" name="submit" alt="Submit" class="container_box_1_in_data_box_func_but_input_hid_submit">
                     </form>
                 </div>
