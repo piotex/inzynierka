@@ -1,15 +1,21 @@
 import os
 import sys
+
+import cv2
+import numpy as np
 from flask import Flask, request, render_template
 from models.Patient import Patient
 from src.PatientList import PatientList
 from src.UserList import UserList
+
+import tensorflow as tf
 
 LOGGED_IN = False
 IMG_PATH_DEF = '../static/def/'
 IMG_PATH_UPL = '../static/uploads/'
 PATIENT_LIST = []
 app = Flask(__name__)
+
 
 @app.route('/patient_list', methods=['GET', 'POST'])
 def patient_list():
@@ -105,9 +111,26 @@ def patient_examine():
 
     try:
         tmp_file = request.files["brain_image"]
-        file_to_examine = os.path.abspath(os.getcwd()) + "\\static\\uploads\\brain_img\\" + tmp_file.filename
+        file_to_examine = "C:\\_programs\\inz_brain_imgs\\" + tmp_file.filename
         tmp_file.save(file_to_examine)
-        tmp_response = "Będzie żył"
+
+        img_size = 80
+        img_1 = cv2.imread(file_to_examine)
+        img_2 = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
+        img_array = cv2.resize(img_2, (img_size, img_size))
+        xxxx = []
+        xxxx.append(img_array)
+        img_to_examine = np.array(xxxx)
+
+        file_name = os.getcwd() + '\\tf_models\\altzheimer_inz_model.h5'
+        model_loaded = tf.keras.models.load_model(file_name)
+        prediction = model_loaded.predict(img_to_examine)
+        print(prediction, sys.stderr)
+        predicted_label = np.argmax(prediction[i])
+        tmpppp_labels = ["MildDemented", "ModerateDemented", "NonDemented", "VeryMildDemented"]
+
+        tmp_response = tmpppp_labels[predicted_label]
+        print(tmp_response, sys.stderr)
         PATIENT_LIST[patient_idx].exam_history.insert(0, tmp_response)
     except Exception as e:
         print(e, file=sys.stderr)
@@ -138,6 +161,13 @@ def login():
     return render_template('login.html', login=tmp_login, pwd=tmp_pwd)
 
 
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    global LOGGED_IN
+    LOGGED_IN = False
+    return render_template('login.html')
+
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def index():
@@ -150,6 +180,6 @@ def index():
 if __name__ == '__main__':
     # todo: how to read patientlist to global list / other options?
     # global PATIENT_LIST
-    PATIENT_LIST = PatientList.read_patient_list()
+    # PATIENT_LIST = PatientList.read_patient_list()
 
     app.run()
