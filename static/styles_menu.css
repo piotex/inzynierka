@@ -33,6 +33,7 @@
 
 #menu_person_details_img img{
     width: 70px;
+    height: 70px;
     margin: 15px 15px 15px 12px;
     border-radius: 25%;
 }

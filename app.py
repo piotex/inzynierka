@@ -47,6 +47,8 @@ def patient_edit():
     for i in range(len(PATIENT_LIST)):
         if PATIENT_LIST[i].id == tmp_id:
             PATIENT_LIST[i] = Patient(id=tmp_id, name=tmp_name, surname=tmp_surname, image=tmp_image, exam_history=[])
+            PatientList.save_patient_list(PATIENT_LIST)
+
     return render_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
@@ -71,6 +73,7 @@ def patient_add():
 
     patient1 = Patient(id=tmp_id, name=tmp_name, surname=tmp_surname, image=tmp_image, exam_history=[])
     PATIENT_LIST.insert(0, patient1)
+    PatientList.save_patient_list(PATIENT_LIST)
 
     return render_template('patient_list.html', patient_list=PATIENT_LIST)
 
@@ -82,6 +85,7 @@ def patient_delete():
     for elem in PATIENT_LIST:
         if elem.id == tmp_id:
             PATIENT_LIST.remove(elem)
+            PatientList.save_patient_list(PATIENT_LIST)
 
     return render_template('patient_list.html', patient_list=PATIENT_LIST)
 
@@ -126,12 +130,13 @@ def patient_examine():
         model_loaded = tf.keras.models.load_model(file_name)
         prediction = model_loaded.predict(img_to_examine)
         print(prediction, sys.stderr)
-        predicted_label = np.argmax(prediction[i])
-        tmpppp_labels = ["MildDemented", "ModerateDemented", "NonDemented", "VeryMildDemented"]
+        predicted_label = np.argmax(prediction)
+        tmpppp_labels = ["Mild Demented", "Moderate Demented", "Non Demented", "Very Mild Demented"]
 
         tmp_response = tmpppp_labels[predicted_label]
         print(tmp_response, sys.stderr)
         PATIENT_LIST[patient_idx].exam_history.insert(0, tmp_response)
+        PatientList.save_patient_list(PATIENT_LIST)
     except Exception as e:
         print(e, file=sys.stderr)
 
@@ -140,7 +145,7 @@ def patient_examine():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global LOGGED_IN
+    global LOGGED_IN, PATIENT_LIST
     if LOGGED_IN:
         return render_template('home.html')
 
@@ -151,6 +156,7 @@ def login():
     for user in user_list:
         if user.login == tmp_login and user.password == tmp_pwd:
             LOGGED_IN = True
+            PATIENT_LIST = PatientList.read_patient_list()
             return render_template('home.html')
 
     if tmp_login is None:
@@ -178,8 +184,4 @@ def index():
 
 
 if __name__ == '__main__':
-    # todo: how to read patientlist to global list / other options?
-    # global PATIENT_LIST
-    # PATIENT_LIST = PatientList.read_patient_list()
-
     app.run()

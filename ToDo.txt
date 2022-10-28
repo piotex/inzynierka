@@ -1,0 +1,19 @@
+To Do:
+- Examine history -> remove number
+- Examine history -> adding dates ?
+- Menu -> pl
+- Login -> read user settings and post it to menu
+- Login -> validation in every controller / page...
+- Add user -> adding default image when not selected
+
+- move some logic to function
+- move functions to dedicate helper classes
+
+
+
+To Remember:
+-
+
+
+
+Source pages with time stamples!:

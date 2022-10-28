@@ -1,44 +1,16 @@
 [
     {
-        "id": 123,
-        "name": "Peter",
-        "surname": "Kub-on",
-        "image": "../static/def/def_pers_icon.png",
-        "exam_history": [
-            "11%",
-            "15%",
-            "25%",
-            "30%",
-            "34%",
-            "55%"
-        ]
-    },
-    {
-        "id": 124,
+        "id": 127,
         "name": "Adam",
         "surname": "Smith",
-        "image": "../static/def/def_pers_icon.png",
-        "exam_history": [
-            "211%",
-            "15%",
-            "25%",
-            "30%",
-            "34%",
-            "55%"
-        ]
+        "image": "",
+        "exam_history": []
     },
     {
-        "id": 125,
-        "name": "Jan",
-        "surname": "Bond",
-        "image": "../static/def/def_pers_icon.png",
-        "exam_history": [
-            "311%",
-            "15%",
-            "25%",
-            "30%",
-            "34%",
-            "55%"
-        ]
+        "id": 126,
+        "name": "Peter",
+        "surname": "Kubon",
+        "image": "../static/uploads/_me (1).png",
+        "exam_history": []
     }
 ]
