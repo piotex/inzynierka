@@ -4,12 +4,11 @@ To Do:
 - Menu -> pl
 - Login -> read user settings and post it to menu
 - Login -> validation in every controller / page...
-- Add user -> adding default image when not selected
 
 - move some logic to function
 - move functions to dedicate helper classes
 
-
+-edit - traci historie badan
 
 To Remember:
 -

@@ -9,8 +9,7 @@ class PatientList:
     @staticmethod
     def get_default_settings_path() -> str:
         tmp_app_settings = "PatientList.json"
-        #return os.path.abspath(os.getcwd()) + "\\db\\" + tmp_app_settings
-        return "C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inżynierka_web\\db\\" + tmp_app_settings
+        return "db/" + tmp_app_settings
 
     @staticmethod
     def read_patient_list(path: str = get_default_settings_path()) -> list[Patient]:

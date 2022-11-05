@@ -3,14 +3,20 @@
         "id": 127,
         "name": "Adam",
         "surname": "Smith",
-        "image": "",
-        "exam_history": []
+        "image": "../static/def/def_pers_icon.png",
+        "exam_history": [
+            "Mild Demented",
+            "Non Demented"
+        ]
     },
     {
         "id": 126,
         "name": "Peter",
         "surname": "Kubon",
         "image": "../static/uploads/_me (1).png",
-        "exam_history": []
+        "exam_history": [
+            "Non Demented",
+            "Moderate Demented"
+        ]
     }
 ]
