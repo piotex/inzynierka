@@ -1,12 +1,25 @@
 [
     {
+        "id": 128,
+        "name": "Kasia",
+        "surname": "Kow",
+        "image": "../static/def/def_pers_icon.png",
+        "exam_history": []
+    },
+    {
         "id": 127,
         "name": "Adam",
-        "surname": "Smith",
-        "image": "../static/def/def_pers_icon.png",
+        "surname": "Smitha",
+        "image": "../static/uploads/_me (3).png",
         "exam_history": [
+            "Moderate Demented",
+            "Very Mild Demented",
+            "Non Demented",
+            "Non Demented",
+            "Very Mild Demented",
             "Mild Demented",
-            "Non Demented"
+            "Non Demented",
+            "Moderate Demented"
         ]
     },
     {
@@ -15,6 +28,14 @@
         "surname": "Kubon",
         "image": "../static/uploads/_me (1).png",
         "exam_history": [
+            "Non Demented",
+            "Mild Demented",
+            "Moderate Demented",
+            "Very Mild Demented",
+            "Non Demented",
+            "Non Demented",
+            "Very Mild Demented",
+            "Mild Demented",
             "Non Demented",
             "Moderate Demented"
         ]

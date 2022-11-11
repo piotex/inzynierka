@@ -6,11 +6,11 @@
         <div class="container_box_1_in_data_box">
             <div class="container_box_1_in_data_box_name">{{patient.name}} {{patient.surname}}</div>
             <div class="container_box_1_in_data_box_func">
-                <ol>
+                <ul>
                     {%for exam in patient.exam_history%}
                         <li>{{exam}}</li>
                     {%endfor%}
-                </ol>
+                </ul>
             </div>
         </div>
     </div>

@@ -29,7 +29,7 @@ def patient_edit():
     tmp_id = int(request.form.get("id"))
     tmp_name = request.form.get("name")
     tmp_surname = request.form.get("surname")
-    tmp_image = request.form.get("image")
+    tmp_image = request.form.get("image_txt")
 
     if tmp_name is None or tmp_surname is None:
         for elem in PATIENT_LIST:
@@ -46,7 +46,8 @@ def patient_edit():
 
     for i in range(len(PATIENT_LIST)):
         if PATIENT_LIST[i].id == tmp_id:
-            PATIENT_LIST[i] = Patient(id=tmp_id, name=tmp_name, surname=tmp_surname, image=tmp_image, exam_history=[])
+            PATIENT_LIST[i] = Patient(id=PATIENT_LIST[i].id, name=tmp_name, surname=tmp_surname, image=tmp_image,
+                                      exam_history=PATIENT_LIST[i].exam_history)
             PatientList.save_patient_list(PATIENT_LIST)
 
     return render_template('patient_list.html', patient_list=PATIENT_LIST)
