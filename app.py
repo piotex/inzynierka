@@ -148,7 +148,7 @@ def patient_examine():
         prediction = model_loaded.predict(img_to_examine)
         print(prediction, sys.stderr)
         predicted_label = np.argmax(prediction)
-        tmpppp_labels = ["Mild Demented", "Moderate Demented", "Non Demented", "Very Mild Demented"]
+        tmpppp_labels = ["Łagodna demencja", "Umiarkowana demencja", "Brak demencji", "Bardzo łagodna demencja"]
 
         tmp_response = tmpppp_labels[predicted_label]
         print(tmp_response, sys.stderr)
