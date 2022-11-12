@@ -1,17 +1,11 @@
 [
     {
-        "id": 128,
-        "name": "Kasia",
-        "surname": "Kow",
-        "image": "../static/def/def_pers_icon.png",
-        "exam_history": []
-    },
-    {
         "id": 127,
         "name": "Adam",
-        "surname": "Smitha",
-        "image": "../static/uploads/_me (3).png",
+        "surname": "Smith",
+        "image": "../static/uploads/mildDem0.jpg",
         "exam_history": [
+            "Moderate Demented",
             "Moderate Demented",
             "Very Mild Demented",
             "Non Demented",

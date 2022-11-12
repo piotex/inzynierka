@@ -1,34 +1,34 @@
 <div id="menu">
-    <div id="menu_company_name">Alzheimer's Detector </div>
+    <div id="menu_company_name">Kategoryzator Alzheimera</div>
     <div id="menu_person_details">
         <div id="menu_person_details_img">
-            <img src="../static/def/def_pers_icon.png" alt="def_pers_icon">
+            <img src="{{logged_user.image}}" alt="def_pers_icon">
         </div>
         <div id="menu_person_details_cont_1">
-            <div id="menu_person_details_cont_1_name">Piotr Kuboń</div>
-            <div id="menu_person_details_cont_1_id">999999</div>
-            <div id="menu_person_details_cont_1_title">doctor</div>
+            <div id="menu_person_details_cont_1_name"> {{logged_user.name + " " + logged_user.surname}}  </div>
+            <div id="menu_person_details_cont_1_id">{{logged_user.id}}</div>
+            <div id="menu_person_details_cont_1_title">{{logged_user.role}}</div>
         </div>
     </div>
     <div id="menu_container_2">
         <div class="menu_container_2_out">
             <div class="menu_container_2_in">
                 <a href="/home">
-                    <div class="menu_container_2_in_text">Home</div>
+                    <div class="menu_container_2_in_text">Strona Główna</div>
                 </a>
             </div>
         </div>
         <div class="menu_container_2_out">
             <div class="menu_container_2_in">
                 <a href="/patient_list">
-                    <div class="menu_container_2_in_text">Patients</div>
+                    <div class="menu_container_2_in_text">Lista Pacjętów</div>
                 </a>
             </div>
         </div>
         <div class="menu_container_2_out">
             <div class="menu_container_2_in">
                 <a href="/logout">
-                    <div class="menu_container_2_in_text">Log out</div>
+                    <div class="menu_container_2_in_text">Wyloguj się</div>
                 </a>
             </div>
         </div>

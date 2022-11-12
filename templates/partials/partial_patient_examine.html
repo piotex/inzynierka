@@ -11,10 +11,11 @@
                         <form action="/examine_patient" method="post" enctype = "multipart/form-data">
                             <input class="container_box_1_in_data_box_func_but_input_hid" type="number" name="id" value="{{patient.id}}">
                             <div>
-                                <div>Insert Brain IMG:</div>
-                                <input type="file" name="brain_image" accept="image/*">
+                                <div>Wybierz zdjęcie skanu mózgu:</div>
+                                <input type="button" value="Zdjęcie skanu mózgu" onclick="document.getElementById('file_btn').click();" />
+                                <input type="file" accept="image/*" name="brain_image" style="display:none;" id="file_btn" />
                             </div>
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Wyślij">
                         </form>
                         <div>
                             {{ response }}

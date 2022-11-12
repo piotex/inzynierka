@@ -1,26 +1,29 @@
 [
     {
         "id": 1,
-        "name": "Peter",
-        "surname": "Kub-on",
+        "name": "Admin",
+        "surname": "",
         "image": "../static/def/def_pers_icon.png",
         "login": "admin",
-        "password": "admin"
+        "password": "admin",
+        "role": "admin"
     },
     {
-        "id": 1,
+        "id": 1111,
         "name": "Piotr",
-        "surname": "Kub-on",
+        "surname": "Kubon",
         "image": "../static/def/def_pers_icon.png",
         "login": "pkubon",
-        "password": "pkubon"
+        "password": "pkubon",
+        "role": "doktor"
     },
     {
-        "id": 1,
+        "id": 1112,
         "name": "Adam",
         "surname": "Jak-on",
         "image": "../static/def/def_pers_icon.png",
         "login": "adam",
-        "password": "adam"
+        "password": "adam",
+        "role": "doktor"
     }
 ]

@@ -1,18 +1,12 @@
 To Do:
-- Examine history -> remove number
 - Examine history -> adding dates ?
-- Menu -> pl
-- Login -> read user settings and post it to menu
-- Login -> validation in every controller / page...
 
 - move some logic to function
 - move functions to dedicate helper classes
 
--edit - traci historie badan
 
 To Remember:
 -
 
 
 
-Source pages with time stamples!:

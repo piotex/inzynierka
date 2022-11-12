@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from models.Exam import Exam
+
 
 @dataclass
 class User:
@@ -9,3 +9,4 @@ class User:
     image: str
     login: str
     password: str
+    role: str

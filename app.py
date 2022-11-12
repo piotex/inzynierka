@@ -14,13 +14,21 @@ LOGGED_IN = False
 IMG_PATH_DEF = '../static/def/'
 IMG_PATH_UPL = '../static/uploads/'
 PATIENT_LIST = []
+LOGGED_USER = None
 app = Flask(__name__)
+
+
+def render_valid_template(template_name, **context):
+    global LOGGED_USER
+    if LOGGED_USER:
+        return render_template(template_name, logged_user=LOGGED_USER, **context)
+    return render_template('login.html', logged_user=LOGGED_USER)
 
 
 @app.route('/patient_list', methods=['GET', 'POST'])
 def patient_list():
-    global IMG_PATH_DEF, PATIENT_LIST
-    return render_template('patient_list.html', patient_list=PATIENT_LIST)
+    global PATIENT_LIST
+    return render_valid_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
 @app.route('/patient_edit', methods=['GET', 'POST'])
@@ -34,7 +42,7 @@ def patient_edit():
     if tmp_name is None or tmp_surname is None:
         for elem in PATIENT_LIST:
             if elem.id == tmp_id:
-                return render_template('patient_edit.html', patient=elem)
+                return render_valid_template('patient_edit.html', patient=elem)
 
     try:
         tmp_file = request.files["image"]
@@ -50,7 +58,7 @@ def patient_edit():
                                       exam_history=PATIENT_LIST[i].exam_history)
             PatientList.save_patient_list(PATIENT_LIST)
 
-    return render_template('patient_list.html', patient_list=PATIENT_LIST)
+    return render_valid_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
 def get_new_patient_id() -> int:
@@ -84,7 +92,7 @@ def patient_add():
     PATIENT_LIST.insert(0, patient1)
     PatientList.save_patient_list(PATIENT_LIST)
 
-    return render_template('patient_list.html', patient_list=PATIENT_LIST)
+    return render_valid_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
 @app.route('/patient_delete', methods=['GET', 'POST'])
@@ -96,7 +104,7 @@ def patient_delete():
             PATIENT_LIST.remove(elem)
             PatientList.save_patient_list(PATIENT_LIST)
 
-    return render_template('patient_list.html', patient_list=PATIENT_LIST)
+    return render_valid_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
 @app.route('/patient_history', methods=['GET', 'POST'])
@@ -106,9 +114,9 @@ def patient_history():
 
     for patient in PATIENT_LIST:
         if patient.id == tmp_id:
-            return render_template('patient_history.html', patient=patient)
+            return render_valid_template('patient_history.html', patient=patient)
 
-    return render_template('patient_list.html', patient_list=PATIENT_LIST)
+    return render_valid_template('patient_list.html', patient_list=PATIENT_LIST)
 
 
 @app.route('/patient_examine', methods=['GET', 'POST'])
@@ -149,16 +157,18 @@ def patient_examine():
     except Exception as e:
         print(e, file=sys.stderr)
 
-    return render_template('patient_examine.html', patient=PATIENT_LIST[patient_idx], response=tmp_response)
+    return render_valid_template('patient_examine.html', patient=PATIENT_LIST[patient_idx], response=tmp_response)
+
 
 def check_login(tmp_login, tmp_pwd):
     global LOGGED_IN, PATIENT_LIST
     if not LOGGED_IN:
-        return render_template('login.html', login=tmp_login, pwd=tmp_pwd)
+        return render_valid_template('login.html', login=tmp_login, pwd=tmp_pwd)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global LOGGED_IN, PATIENT_LIST
+    global LOGGED_IN, PATIENT_LIST, LOGGED_USER
     tmp_login = request.form.get("login")
     tmp_pwd = request.form.get("pwd")
 
@@ -168,31 +178,29 @@ def login():
     for user in user_list:
         if user.login == tmp_login and user.password == tmp_pwd:
             LOGGED_IN = True
+            LOGGED_USER = user
             PATIENT_LIST = PatientList.read_patient_list()
-            return render_template('home.html')
+            return render_valid_template('home.html')
 
     if tmp_login is None:
-        tmp_login = ""
+        LOGGED_USER.login = ""
     if tmp_pwd is None:
-        tmp_pwd = ""
+        LOGGED_USER.password = ""
 
-    return render_template('login.html', login=tmp_login, pwd=tmp_pwd)
+    return render_valid_template('login.html')
 
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    global LOGGED_IN
-    LOGGED_IN = False
-    return render_template('login.html')
+    global LOGGED_USER
+    LOGGED_USER = None
+    return render_valid_template('login.html')
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def index():
-    global LOGGED_IN
-    if LOGGED_IN:
-        return render_template('home.html')
-    return render_template('login.html')
+    return render_valid_template('home.html')
 
 
 if __name__ == '__main__':
