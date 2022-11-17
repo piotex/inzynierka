@@ -8,7 +8,7 @@
             <div class="container_box_1_in_data_box_func">
                 <ul>
                     {%for exam in patient.exam_history%}
-                        <li>{{exam}}</li>
+                        <li>{{exam.date + " " + exam.result}}</li>
                     {%endfor%}
                 </ul>
             </div>

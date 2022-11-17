@@ -1,9 +1,10 @@
 import os
 import sys
-
 import cv2
 import numpy as np
 from flask import Flask, request, render_template
+from datetime import datetime
+from models.Exam import Exam
 from models.Patient import Patient
 from src.PatientList import PatientList
 from src.UserList import UserList
@@ -122,6 +123,8 @@ def patient_history():
 @app.route('/patient_examine', methods=['GET', 'POST'])
 def patient_examine():
     global PATIENT_LIST, IMG_PATH_UPL
+    tmpppp_labels = ["Łagodna demencja", "Umiarkowana demencja", "Brak demencji", "Bardzo łagodna demencja"]
+    img_array_to_examine = []
     tmp_id = int(request.form.get("id"))
     patient_idx = None
     tmp_response = ""
@@ -139,20 +142,19 @@ def patient_examine():
         img_1 = cv2.imread(file_to_examine)
         img_2 = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
         img_array = cv2.resize(img_2, (img_size, img_size))
-        xxxx = []
-        xxxx.append(img_array)
-        img_to_examine = np.array(xxxx)
+        img_array_to_examine.append(img_array)
+        img_array_to_examine = np.array(img_array_to_examine)
 
         file_name = os.getcwd() + '\\tf_models\\altzheimer_inz_model.h5'
         model_loaded = tf.keras.models.load_model(file_name)
-        prediction = model_loaded.predict(img_to_examine)
-        print(prediction, sys.stderr)
+        prediction = model_loaded.predict(img_array_to_examine)
+        # print(prediction, sys.stderr)
         predicted_label = np.argmax(prediction)
-        tmpppp_labels = ["Łagodna demencja", "Umiarkowana demencja", "Brak demencji", "Bardzo łagodna demencja"]
 
         tmp_response = tmpppp_labels[predicted_label]
-        print(tmp_response, sys.stderr)
-        PATIENT_LIST[patient_idx].exam_history.insert(0, tmp_response)
+        exam = Exam(id=1, result=tmp_response, image=file_to_examine, date=datetime.today().strftime('%Y-%m-%d'))
+        # print(tmp_response, sys.stderr)
+        PATIENT_LIST[patient_idx].exam_history.insert(0, exam)
         PatientList.save_patient_list(PATIENT_LIST)
     except Exception as e:
         print(e, file=sys.stderr)

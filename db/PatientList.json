@@ -4,35 +4,13 @@
         "name": "Adam",
         "surname": "Smith",
         "image": "../static/uploads/mildDem0.jpg",
-        "exam_history": [
-            "Umiarkowana demencja",
-            "Moderate Demented",
-            "Moderate Demented",
-            "Very Mild Demented",
-            "Non Demented",
-            "Non Demented",
-            "Very Mild Demented",
-            "Mild Demented",
-            "Non Demented",
-            "Moderate Demented"
-        ]
+        "exam_history": []
     },
     {
         "id": 126,
         "name": "Peter",
         "surname": "Kubon",
         "image": "../static/uploads/_me (1).png",
-        "exam_history": [
-            "Non Demented",
-            "Mild Demented",
-            "Moderate Demented",
-            "Very Mild Demented",
-            "Non Demented",
-            "Non Demented",
-            "Very Mild Demented",
-            "Mild Demented",
-            "Non Demented",
-            "Moderate Demented"
-        ]
+        "exam_history": []
     }
 ]

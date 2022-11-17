@@ -2,6 +2,7 @@ import json
 import os
 from os.path import exists
 
+from models.Exam import Exam
 from models.Patient import Patient
 
 
@@ -20,10 +21,20 @@ class PatientList:
 
         with open(path, "r") as file:
             data = json.load(file)
-            return [Patient(**patient) for patient in data]
+            patient_list = [Patient(**patient) for patient in data]
+            for patient in patient_list:
+                patient.exam_history = [Exam(**exam) for exam in patient.exam_history]
+
+            return patient_list
 
     @staticmethod
     def save_patient_list(patient_list: list[Patient], path: str = get_default_settings_path()):
         """Save instance attributes to JSON file."""
+        res = []
+        for patient in patient_list:
+            tmp = patient.__dict__
+            tmp["exam_history"] = [exam.__dict__ for exam in patient.exam_history]
+            res.append(tmp)
+
         with open(path, "w") as file:
-            json.dump([patient.__dict__ for patient in patient_list], file, indent=4)
+            json.dump(res, file, indent=4)

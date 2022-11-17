@@ -1,9 +1,6 @@
 To Do:
-- Examine history -> adding dates ?
-
 - move some logic to function
 - move functions to dedicate helper classes
-
 
 To Remember:
 -
