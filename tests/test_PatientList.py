@@ -5,12 +5,14 @@ from models.Patient import Patient
 
 
 def test_save_patient_list_1():
-    file_path = "C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inz_web\\db\\test_PatientList.json"
-    img_path_def = '../static/def/'
+    file_path = '/home/peter/Desktop/inz/db/test_PatientList.json'
+    img_path = '../static/def/'
     data = [
-        Patient(id=123, name="Peter", surname="Kub-on", image=img_path_def + "def_pers_icon.png",
+        Patient(id=123, name="Peter", surname="Kub-on", image=img_path + "def_pers_icon.png",
                 exam_history=[
                     Exam(id=1, date="2022-11-20", image="path", result="No demand"),
+                    Exam(id=2, date="2022-11-20", image="path", result="No demand"),
+                    Exam(id=3, date="2022-11-20", image="path", result="No demand"),
                 ]),
     ]
 
@@ -19,22 +21,23 @@ def test_save_patient_list_1():
 
 
 def test_read_patient_list_1():
-    file_path = "C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inz_web\\db\\test_PatientList.json"
-    img_path_def = '../static/def/'
-    read_patient_list = PatientList.read_patient_list(path=file_path)
+    file_path = '/home/peter/Desktop/inz/db/test_PatientList.json'
+    img_path = '../static/def/'
     data = [
-        Patient(id=123, name="Peter", surname="Kub-on", image=img_path_def + "def_pers_icon.png",
+        Patient(id=123, name="Peter", surname="Kub-on", image=img_path + "def_pers_icon.png",
                 exam_history=[
                     Exam(id=1, date="2022-11-20", image="path", result="No demand"),
+                    Exam(id=2, date="2022-11-20", image="path", result="No demand"),
+                    Exam(id=3, date="2022-11-20", image="path", result="No demand"),
                 ]),
     ]
-    print(read_patient_list)
+    read_patient_list = PatientList.read_patient_list(path=file_path)
 
     assert data == read_patient_list
 
 
 def test_save_patient_list():
-    file_path = "C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inz_web\\db\\test_PatientList.json"
+    file_path = '/home/peter/Desktop/inz/db/test_PatientList.json'
     img_path_def = '../static/def/'
     data = [
         Patient(id=123, name="Peter", surname="Kub-on", image=img_path_def + "def_pers_icon.png",
@@ -62,7 +65,7 @@ def test_save_patient_list():
 
 
 def test_read_patient_list():
-    file_path = "C:\\Users\\pkubon\\OneDrive - Capgemini\\Desktop\\inz_web\\db\\test_PatientList.json"
+    file_path = '/home/peter/Desktop/inz/db/test_PatientList.json'
     img_path_def = '../static/def/'
     read_patient_list = PatientList.read_patient_list(path=file_path)
     data = [

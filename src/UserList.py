@@ -1,4 +1,5 @@
 import json
+import os
 from os.path import exists
 from models.User import User
 
@@ -7,7 +8,7 @@ class UserList:
     @staticmethod
     def get_default_settings_path() -> str:
         tmp_app_settings = "UserList.json"
-        return "db/" + tmp_app_settings
+        return os.getcwd() + "/db/" + tmp_app_settings
 
     @staticmethod
     def read_user_list(path: str = get_default_settings_path()) -> list[User]:

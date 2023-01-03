@@ -1,22 +1,39 @@
 [
     {
-        "id": 127,
-        "name": "Adam",
-        "surname": "Smith",
-        "image": "../static/uploads/adam_kubon.jpg",
-        "exam_history": []
-    },
-    {
-        "id": 126,
-        "name": "Piotr",
-        "surname": "Kubon",
-        "image": "../static/uploads/_me (1).png",
+        "id": 0,
+        "name": "Piotrek",
+        "surname": "Kubo\u0144",
+        "image": "../static/uploads/jenkins.png",
         "exam_history": [
             {
                 "id": 1,
-                "image": "C:\\_programs\\inz_brain_imgs\\nonDem0.jpg",
+                "image": "/home/peter/Desktop/inz/static/uploads/docker_img.png",
+                "result": "\u0141agodna demencja",
+                "date": "2023-01-03"
+            },
+            {
+                "id": 1,
+                "image": "/home/peter/Desktop/inz/static/uploads/my_cv_photo_kwadrat.jpg",
                 "result": "Brak demencji",
-                "date": "2022-11-22"
+                "date": "2023-01-03"
+            },
+            {
+                "id": 1,
+                "image": "/home/peter/Desktop/inz/static/uploads/leaky_relu_plot.png",
+                "result": "Brak demencji",
+                "date": "2023-01-03"
+            },
+            {
+                "id": 1,
+                "image": "/home/peter/Desktop/inz/static/uploads/leaky_relu_plot.png",
+                "result": "Brak demencji",
+                "date": "2023-01-03"
+            },
+            {
+                "id": 1,
+                "image": "/home/peter/Desktop/inz/static/uploads/examine.jpg",
+                "result": "Brak demencji",
+                "date": "2023-01-03"
             }
         ]
     }

@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Peter",
+        "surname": "Kub-on",
+        "image": "../static/def/def_pers_icon.png",
+        "login": "admin",
+        "password": "admin",
+        "role": "doctor"
+    },
+    {
+        "id": 1,
+        "name": "Piotr",
+        "surname": "Kub-on",
+        "image": "../static/def/def_pers_icon.png",
+        "login": "pkubon",
+        "password": "pkubon",
+        "role": "doctor"
+    },
+    {
+        "id": 1,
+        "name": "Adam",
+        "surname": "Jak-on",
+        "image": "../static/def/def_pers_icon.png",
+        "login": "adam",
+        "password": "adam",
+        "role": "doctor"
+    }
+]
